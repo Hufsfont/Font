@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
@@ -89,4 +90,21 @@ public class activity_sub_01 extends AppCompatActivity {
 
         return outFile;
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults){
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        AutoPermissions.Companion.parsePermissions(this, requestCode, permissions, this);
+    }
+
+    @Override
+    public void onDenied(int requestCode, String[] permissions){
+        Toast.makeText(this, "permissions denied : " + permissions.length, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onGranted(int requestCode, String[] permissions){
+        Toast.makeText(this, "permissions granted : " + permissions.length, Toast.LENGTH_LONG).show();
+    }
+
 }
