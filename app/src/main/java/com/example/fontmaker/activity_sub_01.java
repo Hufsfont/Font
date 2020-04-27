@@ -16,9 +16,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import com.pedro.library.AutoPermissions;
+import com.pedro.library.AutoPermissionsListener;
+
 import java.io.File;
 
-public class activity_sub_01 extends AppCompatActivity {
+public class activity_sub_01 extends AppCompatActivity implements AutoPermissionsListener {
     ImageView imageView;
     File file;
 
@@ -41,7 +44,7 @@ public class activity_sub_01 extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), activity_sub_02.class);
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, 2);
             }
         });
 
@@ -57,7 +60,7 @@ public class activity_sub_01 extends AppCompatActivity {
     }
 
     @Override
-    protected void onAvtivityResult(int requestCode, int resultCode, Intent data){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 101 && resultCode == RESULT_OK){
@@ -75,7 +78,7 @@ public class activity_sub_01 extends AppCompatActivity {
             file = createFile();
         }
 
-        Uri fileUri = FileProvider.getUriForFile(this,"com.example.fontmaker", file);
+        Uri fileUri = FileProvider.getUriForFile(this,"com.example.fontmaker.fileprovider",file);
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
         if (intent.resolveActivity(getPackageManager()) != null){

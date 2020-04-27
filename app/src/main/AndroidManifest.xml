@@ -4,17 +4,18 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-feature android:name="android.hardware.camera2"
-        android:required="true"/>
+
+    <uses-feature android:name="android.hardware.camera"
+                  android:required="true" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="FontMaker"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_sub_05"></activity>
+        <activity android:name=".activity_sub_05" />
         <activity android:name=".activity_sub_04" />
         <activity android:name=".activity_sub_03" />
         <activity android:name=".activity_sub_02" />
@@ -22,19 +23,18 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <provider
-            android:authorities="com.example.fontmaker"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.fontmaker.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="ture">
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/external"/>
+                android:resource="@xml/external" />
         </provider>
     </application>
 
