@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.pedroSG94:AutoPermissions:1.0.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/320009e4b2bc3d42a8bc1a0354831f0c/jetified-AutoPermissions-1.0.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/320009e4b2bc3d42a8bc1a0354831f0c/jetified-AutoPermissions-1.0.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/94b9658ef39eb7f90e7ca58ccf1daa67/jetified-AutoPermissions-1.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/94b9658ef39eb7f90e7ca58ccf1daa67/jetified-AutoPermissions-1.0.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
