@@ -39,6 +39,7 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
     public static final int CAMERA_STORAGE_REQUEST_CODE = 611;
     public static final int ONLY_CAMERA_REQUEST_CODE = 612;
     public static final int ONLY_STORAGE_REQUEST_CODE = 613;
+    public static int count = 0;
 
     private String currentPhotoPath = "";
     private UiHelper uiHelper = new UiHelper();
@@ -119,8 +120,20 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
                 openCropActivity(uri, uri);
             } else if (requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK) {
                 if (data != null) {
-                    Uri uri = UCrop.getOutput(data);
-                    showImage1(uri);
+                    if(count == 0) {
+                        Uri uri = UCrop.getOutput(data);
+                        showImage1(uri);
+                        count++;
+                    }
+                    else if(count == 1) {
+                        Uri uri = UCrop.getOutput(data);
+                        showImage2(uri);
+                        count++;
+                    }
+                    else if(count == 2) {
+                        Uri uri = UCrop.getOutput(data);
+                        showImage3(uri);
+                    }
                 }
             } else if (requestCode == PICK_IMAGE_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
                 try {
@@ -161,21 +174,21 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
             }
         }
 
-        private void showImage2(Uri imageUri) {
-            try {
-                File file;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                    file = FileUtils.getFile(this, imageUri);
-                } else {
-                    file = new File(currentPhotoPath);
-                }
-                InputStream inputStream = new FileInputStream(file);
-                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                imageView2.setImageBitmap(bitmap);
-            } catch (Exception e) {
-                uiHelper.toast(this, "Please select different profile picture.");
+    private void showImage2(Uri imageUri) {
+        try {
+            File file;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                file = FileUtils.getFile(this, imageUri);
+            } else {
+                file = new File(currentPhotoPath);
             }
+            InputStream inputStream = new FileInputStream(file);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            imageView2.setImageBitmap(bitmap);
+        } catch (Exception e) {
+            uiHelper.toast(this, "Please select different profile picture.");
         }
+    }
 
     private void showImage3(Uri imageUri) {
         try {
