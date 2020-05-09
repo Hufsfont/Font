@@ -63,7 +63,7 @@
         android:thumb="@android:drawable/btn_star_big_on"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1"
         app:layout_constraintVertical_bias="0.506"
         app:tickMarkTint="#FFFFFF" />
 
@@ -80,5 +80,5 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

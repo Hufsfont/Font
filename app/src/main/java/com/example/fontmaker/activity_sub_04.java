@@ -29,7 +29,7 @@ public class activity_sub_04 extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(getApplicationContext(), activity_sub_05.class);
-                startActivityForResult(intent, 1);
+                startActivityForResult(intent, 5);
             }
         });
     }
