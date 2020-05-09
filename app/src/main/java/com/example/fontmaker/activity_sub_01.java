@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -65,6 +66,14 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), activity_sub_02.class);
                 startActivityForResult(intent, 2);
+            }
+        });
+
+        ImageButton btn_popup = findViewById(R.id.btn_popup);
+        btn_popup.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), popup.class);
+                startActivityForResult(intent, 3);
             }
         });
 
