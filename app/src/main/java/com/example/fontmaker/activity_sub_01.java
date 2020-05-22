@@ -40,7 +40,6 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
     public static final int CAMERA_STORAGE_REQUEST_CODE = 611;
     public static final int ONLY_CAMERA_REQUEST_CODE = 612;
     public static final int ONLY_STORAGE_REQUEST_CODE = 613;
-    public static int count = 0;
 
     private String currentPhotoPath = "";
     private UiHelper uiHelper = new UiHelper();
@@ -48,19 +47,19 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 없애기
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sub_01);
+        setContentView(R.layout.activity_sub_01); // actiyity에서 컨텐츠 보여주기
 
-        Button button = findViewById(R.id.button);
+        Button button = findViewById(R.id.button); // 이전 activity로 돌아가기
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }
         });
 
-        Button button1 = findViewById(R.id.button1);
+        Button button1 = findViewById(R.id.button1); // 다음 activity로 넘어가기
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +68,7 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
             }
         });
 
-        ImageButton btn_popup = findViewById(R.id.btn_popup);
+        ImageButton btn_popup = findViewById(R.id.btn_popup); // 도움말 표시하기
         btn_popup.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), popup.class);
@@ -77,15 +76,13 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
             }
         });
 
-        findViewById(R.id.btn_camera).setOnClickListener(v -> {
+        findViewById(R.id.btn_camera).setOnClickListener(v -> { //카메라 버튼 클릭시 동작 설정
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                 if (uiHelper.checkSelfPermissions(this))
                     uiHelper.showImagePickerDialog(this, this);
         });
 
         imageView1 = findViewById(R.id.imageView1);
-        imageView2 = findViewById(R.id.imageView2);
-        imageView3 = findViewById(R.id.imageView3);
     }
 
         @Override
@@ -129,20 +126,8 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
                 openCropActivity(uri, uri);
             } else if (requestCode == UCrop.REQUEST_CROP && resultCode == RESULT_OK) {
                 if (data != null) {
-                    if(count == 0) {
                         Uri uri = UCrop.getOutput(data);
                         showImage1(uri);
-                        count++;
-                    }
-                    else if(count == 1) {
-                        Uri uri = UCrop.getOutput(data);
-                        showImage2(uri);
-                        count++;
-                    }
-                    else if(count == 2) {
-                        Uri uri = UCrop.getOutput(data);
-                        showImage3(uri);
-                    }
                 }
             } else if (requestCode == PICK_IMAGE_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
                 try {
@@ -182,38 +167,6 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
                 uiHelper.toast(this, "Please select different profile picture.");
             }
         }
-
-    private void showImage2(Uri imageUri) {
-        try {
-            File file;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                file = FileUtils.getFile(this, imageUri);
-            } else {
-                file = new File(currentPhotoPath);
-            }
-            InputStream inputStream = new FileInputStream(file);
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-            imageView2.setImageBitmap(bitmap);
-        } catch (Exception e) {
-            uiHelper.toast(this, "Please select different profile picture.");
-        }
-    }
-
-    private void showImage3(Uri imageUri) {
-        try {
-            File file;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                file = FileUtils.getFile(this, imageUri);
-            } else {
-                file = new File(currentPhotoPath);
-            }
-            InputStream inputStream = new FileInputStream(file);
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-            imageView3.setImageBitmap(bitmap);
-        } catch (Exception e) {
-            uiHelper.toast(this, "Please select different profile picture.");
-        }
-    }
 
         @Override
         public void onOptionSelected(ImagePickerEnum imagePickerEnum) {

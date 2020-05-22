@@ -41,7 +41,7 @@
             android:layout_marginBottom="30dp"
             android:alpha="0.87"
             android:gravity="center"
-            android:text="1. 글자가 겹쳐지지 않게 작성해 주시기 바랍니다."
+            android:text="1. 빈 종이에 10개의 글자 상자를 만들어 줍니다."
             android:textColor="#000"
             android:textSize="15sp" />
 
@@ -52,7 +52,7 @@
             android:layout_marginBottom="30dp"
             android:alpha="0.87"
             android:gravity="center"
-            android:text="2. 카메라 버튼을 클릭하여 이미지를 선택합니다."
+            android:text="2. 글자 상자에 펜그램 예시문장을 작성합니다."
             android:textColor="#000"
             android:textSize="15sp" />
 
@@ -63,7 +63,18 @@
             android:layout_marginBottom="30dp"
             android:alpha="0.87"
             android:gravity="center"
-            android:text="3. 이미지를 찍거나 선택한 후 n번 자릅니다."
+            android:text="3. 카메라 버튼을 클릭하여 이미지를 찍거나 선택합니다."
+            android:textColor="#000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:alpha="0.87"
+            android:gravity="center"
+            android:text="4. 제공되는 툴을 이용해 이미지를 자릅니다."
             android:textColor="#000"
             android:textSize="15sp" />
     </LinearLayout>
