@@ -8,11 +8,12 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class activity_sub_02 extends AppCompatActivity {
-    private ImageView imageView1, imageView2, imageView3;
+    ImageView imageView1, imageView2, imageView3;
     private String currentPhotoPath = "";
 
     @Override
@@ -45,10 +46,18 @@ public class activity_sub_02 extends AppCompatActivity {
             }
         });
 
-        if(getIntent().getParcelableExtra("image") != null){
-            Uri imageUri = getIntent().getParcelableExtra("image");
+        try {
+            Intent mIntent = getIntent();
+            currentPhotoPath = mIntent.getStringExtra("image");
+            Toast.makeText(getApplicationContext(),currentPhotoPath, Toast.LENGTH_LONG).show();
+            Uri imageUri = Uri.parse(currentPhotoPath);
+            imageView1 = (ImageView) findViewById(R.id.imageView1);
             imageView1.setImageURI(imageUri);
+
+        }catch (Exception e) {
+            Toast.makeText(getApplicationContext(),"실패", Toast.LENGTH_LONG).show();
         }
+
     }
 
 

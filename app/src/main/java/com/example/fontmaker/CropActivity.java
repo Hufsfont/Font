@@ -15,6 +15,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -85,7 +86,8 @@ public class CropActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent(CropActivity.this, activity_sub_02.class);
                 Uri uri = Uri.parse(currentPhotoPath);
-                intent.putExtra("image", uri);
+                intent.putExtra("image", currentPhotoPath);
+                Toast.makeText(getApplicationContext(),currentPhotoPath, Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }
         });
@@ -99,7 +101,7 @@ public class CropActivity extends AppCompatActivity {
                 ), "Camera"
         );
         File file = new File (storageDir, imageFileName);
-        if (file.exists ()) file.delete ();
+        if (file.exists ()) file.delete();
         try {
             FileOutputStream out = new FileOutputStream(file);
             finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
