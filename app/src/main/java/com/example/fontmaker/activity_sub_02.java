@@ -1,14 +1,20 @@
 package com.example.fontmaker;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class activity_sub_02 extends AppCompatActivity {
+    private ImageView imageView1, imageView2, imageView3;
+    private String currentPhotoPath = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +38,21 @@ public class activity_sub_02 extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+
+        ImageButton imageButton_1 = findViewById(R.id.imageButton_1); // 도움말 표시하기
+        imageButton_1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                setContentView(new SomeView(activity_sub_02.this));
+            }
+        });
+
+        Uri imageUri = getIntent().getParcelableExtra("image");
+        try {
+            imageView1.setImageURI(imageUri);
+            Toast.makeText(this, "토스트 메시지 띄우기 성공~!", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 }
