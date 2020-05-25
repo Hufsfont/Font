@@ -8,7 +8,6 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,13 +45,12 @@ public class activity_sub_02 extends AppCompatActivity {
             }
         });
 
-        Uri imageUri = getIntent().getParcelableExtra("image");
-        try {
+        if(getIntent().getParcelableExtra("image") != null){
+            Uri imageUri = getIntent().getParcelableExtra("image");
             imageView1.setImageURI(imageUri);
-            Toast.makeText(this, "토스트 메시지 띄우기 성공~!", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
+
+
 
 }
