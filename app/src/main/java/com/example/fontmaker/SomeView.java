@@ -54,6 +54,48 @@ public class SomeView extends View implements View.OnTouchListener {
         width = displayMetrics.widthPixels;
 
         Bitmap original = BitmapFactory.decodeResource(getResources(), R.drawable.sample1);
+
+        if (Mydata.data_count == 0) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample1);
+        }
+
+        if (Mydata.data_count == 1) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample2);
+        }
+
+        if (Mydata.data_count == 2) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample3);
+        }
+
+        if (Mydata.data_count == 3) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample4);
+        }
+
+        if (Mydata.data_count == 4) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample5);
+        }
+
+        if (Mydata.data_count == 5) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample6);
+        }
+
+        if (Mydata.data_count == 6) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample7);
+        }
+
+        if (Mydata.data_count == 7) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample8);
+        }
+
+        if (Mydata.data_count == 8) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample9);
+        }
+
+        if (Mydata.data_count == 9) {
+            original = BitmapFactory.decodeResource(getResources(), R.drawable.sample10);
+        }
+
+
         float scale = (float) ((width/(float)original.getWidth()));
 
         int image_w = (int) (original.getWidth()*scale);
