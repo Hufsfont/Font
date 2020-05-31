@@ -13,9 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dfa130a-909f-4b0f-8199-0df76629418b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fontmaker/Mydata.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fontmaker/Mydata.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fontmaker/activity_sub_01.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fontmaker/activity_sub_01.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -238,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590914591993</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add bitmap sentence">
+      <created>1590917029106</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1590917029106</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,6 +268,7 @@
     <MESSAGE value="crop activity, popup update" />
     <MESSAGE value="free crop test" />
     <MESSAGE value="free crop test 1 crop success" />
-    <option name="LAST_COMMIT_MESSAGE" value="free crop test 1 crop success" />
+    <MESSAGE value="add bitmap sentence" />
+    <option name="LAST_COMMIT_MESSAGE" value="add bitmap sentence" />
   </component>
 </project>
