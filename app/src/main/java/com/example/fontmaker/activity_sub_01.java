@@ -164,6 +164,7 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
                 }
                 InputStream inputStream = new FileInputStream(file);
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                Mydata.sentence_bitmap = bitmap;
                 imageView1.setImageBitmap(bitmap);
             } catch (Exception e) {
                 uiHelper.toast(this, "Please select different profile picture.");
