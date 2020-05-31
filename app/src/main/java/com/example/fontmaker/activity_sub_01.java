@@ -157,8 +157,10 @@ public class activity_sub_01 extends AppCompatActivity implements IImagePickerLi
                 File file;
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
                     file = FileUtils.getFile(this, imageUri);
+                    Mydata.sentence_img = imageUri.toString();
                 } else {
                     file = new File(currentPhotoPath);
+                    Mydata.sentence_img  = currentPhotoPath;
                 }
                 InputStream inputStream = new FileInputStream(file);
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
